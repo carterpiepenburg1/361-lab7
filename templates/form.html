@@ -3,7 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>BMI</title>
-</head> 
+</head>
 <body>
+    <hr>
+    <form action="/" method="get">{% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    <label for="ft">Height (ft): </label>
+                    <input type="text" id="ft" name="ft" value="{{ ft }}">
+                </td>
+                <td>
+                    <label for="in">(in): </label>
+                    <input type="text" id="in" name="in" value="{{ in }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="weight">Weight (lb): </label>
+                    <input type="text" id="weight" name="weight" value="{{ weight }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <hr>
+    <p>Your BMI is: {{ bmi }}</p>
+    <hr>
+    {% for m in message %}
+        <p>{{ m }}</p>
+        <br>
+    {% endfor %}
 </body>
 </html>
